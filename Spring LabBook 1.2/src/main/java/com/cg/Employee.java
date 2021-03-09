@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Employee {
 	
+
 	@Value("${emp.id}")
 	private int employeeId;
 	

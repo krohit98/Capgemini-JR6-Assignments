@@ -12,10 +12,15 @@ public class EmployeeMain {
 	    
 	    public void start() {
 	    	
-	    	AnnotationConfigApplicationContext context =new AnnotationConfigApplicationContext();
-	        context.register(JavaConfig.class);
-	        context.refresh();
-	        Employee employee= context.getBean(Employee.class);
+	    	AnnotationConfigApplicationContext container =new AnnotationConfigApplicationContext(); //creates a container
+	    	
+	        container.register(JavaConfig.class);//
+	        
+	        container.refresh();
+	        
+	        Employee employee= container.getBean(Employee.class);
+	
+	        
 	        System.out.println("Employee details"
 	        		+"\n-----------------------"
 	        		+"\nEmployee ID: "+employee.getEmployeeId()
@@ -26,7 +31,8 @@ public class EmployeeMain {
 					+"\nSbuName: "+employee.getSBUDetails().getSbuId()
 					+"\nSbuHead: "+employee.getSBUDetails().getSbuHead()
 					);
-	        context.close();
+	        
+	        container.close();
 	    }
 
 	}

@@ -1,10 +1,9 @@
 package com.cg;
 
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Configuration;
 
-@PropertySource("classpath:employee.properties")
 @ComponentScan("com.cg")
+@Configuration
 public class JavaConfig {
-
 }

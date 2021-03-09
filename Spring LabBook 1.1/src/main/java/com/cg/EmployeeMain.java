@@ -1,20 +1,21 @@
 package com.cg;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
+@SpringBootApplication
 public class EmployeeMain {
 
 	public static void main(String[] args) {
 		
 		EmployeeMain app = new EmployeeMain();
-		app.start();
+		app.start(args);
 	}
 	
-	public void start() {
+	public void start(String[] args) {
 		
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-		context.register(JavaConfig.class);
-		context.refresh();
+		ConfigurableApplicationContext context = SpringApplication.run(EmployeeMain.class, args);
 		Employee employee = context.getBean(Employee.class);
 		System.out.println("Employee details"
         		+"\n-----------------------"
